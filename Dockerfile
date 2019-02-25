@@ -15,4 +15,4 @@ RUN jupyter nbextensions_configurator enable --user
 RUN apt install -y openvpn
 ADD start.sh /
 RUN chmod +x /start.sh
-ENTRYPOINT [ "/start.sh" ]
+CMD [ "/start.sh" ]
