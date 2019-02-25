@@ -13,5 +13,5 @@ done
 fi 
 cd home/
 
-jupyter-notebook --ip=0.0.0.0 --allow-root &
+jupyter-notebook --ip=0.0.0.0 --allow-root 
 
