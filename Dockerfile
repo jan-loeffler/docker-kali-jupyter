@@ -9,6 +9,7 @@ RUN python3 -m bash_kernel.install
 RUN apt install -y openssh-server vim
 RUN echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 RUN echo "Port 2222" >> /etc/ssh/sshd_config
-
-CMD [ "cd","/home/" ]
-CMD [ "/usr/bin/jupyter-notebook","--allow-root" ]
+RUN echo "root:easytoguess"|chpasswd
+ADD start.sh /
+RUN chmod +x /start.sh
+ENTRYPOINT [ "/start.sh" ]
