@@ -2,4 +2,4 @@
 
 service ssh restart
 cd home/
-jupyter-notebook --allow-root
+jupyter-notebook --ip=0.0.0.0 --allow-root
