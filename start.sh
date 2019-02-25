@@ -2,4 +2,12 @@
 
 service ssh restart
 cd home/
-jupyter-notebook --ip=0.0.0.0 --allow-root
+for FILE in /*.ovpn; 
+do 
+    echo ${FILE}
+    openvpn --config ${FILE}
+    break; 
+done
+
+jupyter-notebook --ip=0.0.0.0 --allow-root &
+

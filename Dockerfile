@@ -12,6 +12,7 @@ RUN echo "Port 2222" >> /etc/ssh/sshd_config
 RUN echo "root:easytoguess"|chpasswd
 RUN pip3 install jupyter_contrib_nbextensions
 RUN jupyter nbextensions_configurator enable --user
+RUN apt install -y openvpn
 ADD start.sh /
 RUN chmod +x /start.sh
 ENTRYPOINT [ "/start.sh" ]
