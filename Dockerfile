@@ -21,8 +21,6 @@ RUN apt-get -y update && apt-get -y upgrade && \
     apt-get autoremove -y && \
     apt-get clean
 RUN mkdir /data
-ADD .vnc /root/.vnc
-ADD .Xauthority /root/.Xauthority
 RUN apt-get update && \
     apt-get install -y --fix-missing git python tightvncserver x11vnc xfce4 && \
     apt-get autoremove -y && \
