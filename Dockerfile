@@ -28,6 +28,8 @@ RUN apt-get update && \
     git clone --depth 1 https://github.com/novnc/noVNC.git /root/noVNC && \
     git clone --depth 1 https://github.com/novnc/websockify.git /root/noVNC/utils/websockify 
 ADD start.sh /
+ADD .vnc /root/.vnc
+ADD .Xauthority /root/.Xauthority
 RUN chmod +x /start.sh
 EXPOSE 5901 6080 2222 8888
 ENV USER root
