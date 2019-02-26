@@ -31,4 +31,5 @@ RUN apt-get update && \
     git clone --depth 1 https://github.com/novnc/websockify.git /root/noVNC/utils/websockify 
 ADD start.sh /
 RUN chmod +x /start.sh
+EXPOSE 5901 6080 2222 8888
 CMD [ "/start.sh" ]
