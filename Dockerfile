@@ -31,6 +31,7 @@ ADD start.sh /
 ADD .vnc /root/.vnc
 ADD .Xauthority /root/.Xauthority
 RUN chmod +x /start.sh
+RUN apt install -y vnc4server
 RUN echo "easytoguess" | vncpasswd -f > /root/.vnc/passwd
 EXPOSE 5901 6080 2222 8888
 ENV USER root
