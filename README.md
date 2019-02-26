@@ -1,3 +1,22 @@
 # docker-kali-jupyter
 Run with:
-    docker run -t -i -p 2222:2222 -p 8888:8888 jasha/kali-jupyter
+docker run --privileged --cap-add=ALL -p 6080:6080  -p 5901:5901 -p 5900:5900 -p 8888:8888 -p 2222:2222 -it 
+
+Optional:
+## Persistant Notebooks:
+jupyter notebook will run in /home/, if you want to persist the notebooks map it with 
+```
+-v /yourfolder/:/home/
+```
+## Using Openvpn
+```
+-v /home/user/myvpnfile.opvn:/vpn.opvn
+```
+
+for the openvpn you might need to run 
+```
+sudo modprobe tun
+```
+ on the host machiene
+
+The password for SSH / VNC is "easytoguess", please don't run this on a public network! For academic use only!
