@@ -1,7 +1,7 @@
 #!/bin/bash
 count=`ls -1 *.ovpn 2>/dev/null | wc -l`
 service ssh restart
-vncserver :1 &
+vncserver -geometry 1920x1200 :1 &
 /root/noVNC/utils/launch.sh --vnc localhost:5901 &
 
 if [ $count != 0 ]
