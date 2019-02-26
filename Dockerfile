@@ -28,9 +28,7 @@ RUN apt-get update && \
     apt-get autoremove -y && \
     apt-get clean && \
     git clone --depth 1 https://github.com/novnc/noVNC.git /root/noVNC && \
-    git clone --depth 1 https://github.com/novnc/websockify.git /root/noVNC/utils/websockify && \
-    chmod 0755 /start-vnc.sh
-
+    git clone --depth 1 https://github.com/novnc/websockify.git /root/noVNC/utils/websockify 
 ADD start.sh /
 RUN chmod +x /start.sh
 CMD [ "/start.sh" ]
