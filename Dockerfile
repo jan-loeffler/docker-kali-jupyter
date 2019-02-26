@@ -32,4 +32,6 @@ RUN apt-get update && \
 ADD start.sh /
 RUN chmod +x /start.sh
 EXPOSE 5901 6080 2222 8888
+ENV USER root
+
 CMD [ "/start.sh" ]
