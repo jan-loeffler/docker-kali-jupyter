@@ -13,6 +13,24 @@ RUN echo "root:easytoguess"|chpasswd
 RUN pip3 install jupyter_contrib_nbextensions
 RUN jupyter nbextensions_configurator enable --user
 RUN apt install -y openvpn
+RUN apt-get -y update && apt-get -y upgrade && \
+    apt-get install -y kali-linux-full --fix-missing && \
+    apt-get install -y \
+    software-properties-common \
+    bash-completion git colordiff colortail unzip vim tmux zsh curl telnet strace ltrace tmate && \
+    apt-get autoremove -y && \
+    apt-get clean
+RUN mkdir /data
+ADD .vnc /root/.vnc
+ADD .Xauthority /root/.Xauthority
+RUN apt-get update && \
+    apt-get install -y --fix-missing git python tightvncserver x11vnc xfce4 && \
+    apt-get autoremove -y && \
+    apt-get clean && \
+    git clone --depth 1 https://github.com/novnc/noVNC.git /root/noVNC && \
+    git clone --depth 1 https://github.com/novnc/websockify.git /root/noVNC/utils/websockify && \
+    chmod 0755 /start-vnc.sh
+
 ADD start.sh /
 RUN chmod +x /start.sh
 CMD [ "/start.sh" ]
