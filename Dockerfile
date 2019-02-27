@@ -22,7 +22,7 @@ RUN apt-get -y update && apt-get -y upgrade && \
     apt-get clean
 RUN mkdir /data
 RUN apt-get update && \
-    apt-get install -y --fix-missing git python tightvncserver x11vnc xfce4 && \
+    apt-get install -y --fix-missing git python tightvncserver x11vnc gnome && \
     apt-get autoremove -y && \
     apt-get clean && \
     git clone --depth 1 https://github.com/novnc/noVNC.git /root/noVNC && \
