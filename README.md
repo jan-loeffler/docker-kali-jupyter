@@ -21,4 +21,5 @@ sudo modprobe tun
  on the host machiene
 
 The password for SSH "toor", please don't run this on a public network! For academic use only!
-On VNC (Port 5901) and Jupyter (Port 8888) is NO PASSWORD
+On VNC (Port 5901) and Jupyter (Port 8888) is NO PASSWORD.
+Everybody on the same network might be able to connect!
