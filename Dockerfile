@@ -33,6 +33,8 @@ ADD .Xauthority /root/.Xauthority
 RUN chmod +x /start.sh
 RUN apt install -y vnc4server tigervnc-common tigervnc-standalone-server
 RUN echo "easytoguess" | vncpasswd -f > /root/.vnc/passwd
+ADD .jupyter /root/.jupyter
+
 EXPOSE 5901 6080 2222 8888
 ENV USER root
 
