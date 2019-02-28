@@ -36,7 +36,7 @@ RUN echo "easytoguess" | vncpasswd -f > /root/.vnc/passwd
 ADD .jupyter /root/.jupyter
 RUN echo "PermitEmptyPasswords yes" >> /etc/ssh/sshd_config
 RUN echo "root:toor"|chpasswd
-
+RUN apt install -y gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal
 EXPOSE 5901 6080 2222 8888
 ENV USER root
 
