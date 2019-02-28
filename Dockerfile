@@ -27,16 +27,15 @@ RUN apt-get update && \
     apt-get clean && \
     git clone --depth 1 https://github.com/novnc/noVNC.git /root/noVNC && \
     git clone --depth 1 https://github.com/novnc/websockify.git /root/noVNC/utils/websockify 
-ADD start.sh /
-ADD .vnc /root/.vnc
-ADD .Xauthority /root/.Xauthority
-RUN chmod +x /start.sh
 RUN apt install -y vnc4server tigervnc-common tigervnc-standalone-server
-RUN echo "easytoguess" | vncpasswd -f > /root/.vnc/passwd
-ADD .jupyter /root/.jupyter
 RUN echo "PermitEmptyPasswords yes" >> /etc/ssh/sshd_config
 RUN echo "root:toor"|chpasswd
 RUN apt install -y gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal
+ADD start.sh /
+ADD .vnc /root/.vnc
+ADD .Xauthority /root/.Xauthority
+ADD .jupyter /root/.jupyter
+RUN chmod +x /start.sh
 EXPOSE 5901 6080 2222 8888
 ENV USER root
 
